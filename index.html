@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cáritas La Vega - Compromiso Social y Desarrollo Comunitario</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2C5F2D;
+            --secondary: #97BC62;
+            --accent: #F4A460;
+            --text-dark: #1a1a1a;
+            --text-light: #4a4a4a;
+            --bg-light: #FAF9F6;
+            --bg-white: #ffffff;
+            --border: #E5E1DA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Crimson Pro', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a3d1b 100%);
+            color: white;
+            padding: 120px 20px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M10 10h80v80h-80z" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></svg>');
+            opacity: 0.5;
+            animation: slidePattern 20s linear infinite;
+        }
+
+        @keyframes slidePattern {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(100px) translateY(100px); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            opacity: 0.95;
+            margin-bottom: 15px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+
+        .hero-tagline {
+            font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+            opacity: 0.8;
+            font-style: italic;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Navigation */
+        .nav {
+            background: var(--bg-white);
+            padding: 20px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav a:hover {
+            color: var(--primary);
+        }
+
+        .nav a:hover::after {
+            width: 80%;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Section */
+        .section {
+            padding: 80px 20px;
+            position: relative;
+        }
+
+        .section:nth-child(even) {
+            background: var(--bg-white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 20px auto 0;
+        }
+
+        /* Historia Card */
+        .historia-card {
+            background: var(--bg-white);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+            margin-bottom: 40px;
+            border-left: 5px solid var(--secondary);
+        }
+
+        .historia-intro {
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .historia-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin-top: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--secondary), var(--accent));
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -47px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid var(--bg-white);
+            box-shadow: 0 0 0 3px var(--secondary);
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .timeline-period {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .timeline-content {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Objetivos Grid */
+        .objetivos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .objetivo-card {
+            background: var(--bg-white);
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--secondary);
+        }
+
+        .objetivo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .objetivo-letter {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .objetivo-text {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 0.98rem;
+        }
+
+        /* Ejes Cards */
+        .ejes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .eje-card {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a3d1b 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .eje-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transition: all 0.5s ease;
+        }
+
+        .eje-card:hover::before {
+            top: -100%;
+            right: -100%;
+        }
+
+        .eje-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(44, 95, 45, 0.3);
+        }
+
+        .eje-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            opacity: 0.3;
+            position: relative;
+        }
+
+        .eje-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 10px;
+            position: relative;
+        }
+
+        /* Enfoques */
+        .enfoques-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
+        }
+
+        .enfoque-card {
+            background: var(--bg-white);
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .enfoque-card:hover {
+            border-left-width: 8px;
+            padding-left: 32px;
+        }
+
+        .enfoque-title {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .enfoque-description {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 0.98rem;
+        }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(44, 95, 45, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+
+        /* Lista con estilo */
+        .styled-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 30px;
+        }
+
+        .styled-list li {
+            padding: 15px 20px 15px 50px;
+            margin-bottom: 12px;
+            background: var(--bg-white);
+            border-radius: 10px;
+            position: relative;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+        }
+
+        .styled-list li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .styled-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 18px;
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* Valores Grid */
+        .valores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .valor-badge {
+            background: var(--bg-white);
+            padding: 20px;
+            border-radius: 30px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary);
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .valor-badge:hover {
+            background: var(--secondary);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Contact Section */
+        .contact-info {
+            background: var(--primary);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            margin-top: 50px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .contact-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer p {
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 20px 60px;
+            }
+
+            .section {
+                padding: 50px 20px;
+            }
+
+            .historia-card {
+                padding: 30px;
+            }
+
+            .timeline {
+                padding-left: 30px;
+            }
+
+            .nav {
+                padding: 15px 20px;
+            }
+
+            .nav-content {
+                gap: 15px;
+            }
+
+            .contact-info {
+                padding: 40px 25px;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection */
+        ::selection {
+            background: var(--secondary);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Cáritas Diocesana de La Vega</h1>
+            <p class="hero-subtitle">Compromiso Social y Desarrollo Comunitario</p>
+            <p class="hero-tagline">Promoviendo la dignidad humana y el desarrollo integral desde 1969</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="#historia">Historia</a>
+            <a href="#descripcion">Descripción</a>
+            <a href="#mision-vision">Misión y Visión</a>
+            <a href="#objetivos">Objetivos</a>
+            <a href="#ejes">Ejes Estratégicos</a>
+            <a href="#enfoques">Enfoques</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- Historia Section -->
+    <section id="historia" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nuestra Historia</h2>
+                <p class="section-subtitle">Más de 50 años de compromiso con las comunidades más necesitadas</p>
+            </div>
+
+            <div class="historia-card">
+                <p class="historia-intro">
+                    Cáritas La Vega fue fundada el 19 de septiembre de 1969 por Monseñor Juan Antonio Flores Santana, Obispo de La Vega durante el período 1966-1992.
+                </p>
+                <p class="historia-text">
+                    Desde sus inicios, Monseñor Flores organizó la Pastoral Social, Cáritas Diocesana y el Centro de Promoción Campesina. El primer director nombrado fue el señor Vinicio Torres, quien dirigió la institución desde su fundación hasta 1984. Le siguió el Sr. Antonio Basilio de la Cruz (1984-2011), y actualmente el Ing. Franklin Mota López dirige la institución desde 2012.
+                </p>
+                <p class="historia-text">
+                    Cáritas surgió vinculada a los sectores campesinos y a la acción de promoción social de la iglesia, en un contexto de desarticulación estatal, altos niveles de pobreza, limitada labor pastoral, pocas políticas sociales y servicios básicos deficientes.
+                </p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-period">1969-1984</span>
+                    <h3 class="timeline-title">Etapa Asistencialista</h3>
+                    <p class="timeline-content">
+                        La institución se caracterizó por ser asistencialista. Se promovieron las asociaciones campesinas y las organizaciones vinculadas a la acción social de la iglesia. Cáritas se dio a conocer principalmente por los programas de alimentos y prendas de vestir, promoviendo trabajos comunitarios.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-period">1984-2000</span>
+                    <h3 class="timeline-title">Promoción Humana y Desarrollo</h3>
+                    <p class="timeline-content">
+                        Se implementó un programa de capacitación basado en el documento de la Segunda Conferencia del Episcopado Latinoamericano en Puebla, México. Se promovieron las Federaciones Campesinas desde la Iglesia y se inició la ejecución de proyectos autogestionarios.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-period">2001-2028</span>
+                    <h3 class="timeline-title">Fortalecimiento Institucional y Desarrollo Sostenible</h3>
+                    <p class="timeline-content">
+                        Proceso de renovación institucional con una Cáritas mejor estructurada, mayor capacidad técnica, aumento de áreas de servicio y planes definidos de trabajo. Implementación de planes estratégicos institucionales.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Descripción Section -->
+    <section id="descripcion" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Descripción Institucional</h2>
+            </div>
+
+            <div class="historia-card">
+                <p class="historia-text">
+                    Cáritas Diocesana es una institución sin fines de lucro que impulsa el desarrollo y la asistencia social. Depende del Obispado de la Diócesis de La Vega, se rige por la legislación general de la Iglesia Católica y por la ley 122-05 de la República Dominicana.
+                </p>
+                <p class="historia-text">
+                    Tiene su ámbito de acción en el territorio de la Diócesis de La Vega (La Vega, Monseñor Nouel, Hermanas Mirabal y Sánchez Ramírez). Forma parte de la Pastoral Social de la Iglesia Católica y coordina sus acciones a través de las 61 parroquias en la Diócesis y mediante organizaciones comunitarias vinculadas a la acción social de la Iglesia.
+                </p>
+                <p class="historia-text">
+                    Es parte integral de la Red Cáritas Dominicana y por medio de ésta a Cáritas Internacionalis, confederación que agrupa las diferentes Cáritas Nacionales y Regionales a nivel mundial.
+                </p>
+            </div>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Provincias</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">21</div>
+                    <div class="stat-label">Municipios</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">61</div>
+                    <div class="stat-label">Parroquias</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">385</div>
+                    <div class="stat-label">Comunidades</div>
+                </div>
+            </div>
+
+            <h3 style="font-size: 1.8rem; color: var(--primary); margin: 40px 0 20px;">Departamentos y Áreas de Intervención</h3>
+            <ul class="styled-list">
+                <li>Desarrollo Comunitario</li>
+                <li>Salud</li>
+                <li>Educación</li>
+                <li>MAGRE (Medio Ambiente, Gestión de Riesgo y Emergencia)</li>
+                <li>Economía y Agropecuaria</li>
+                <li>Agua Potable</li>
+                <li>Vivienda</li>
+                <li>Fortalecimiento Institucional</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Misión y Visión Section -->
+    <section id="mision-vision" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Misión y Visión</h2>
+            </div>
+
+            <div class="objetivos-grid">
+                <div class="objetivo-card">
+                    <div class="objetivo-letter" style="background: linear-gradient(135deg, #97BC62, #2C5F2D);">M</div>
+                    <h3 style="color: var(--primary); font-size: 1.4rem; margin-bottom: 15px;">Misión</h3>
+                    <p class="objetivo-text">
+                        Cáritas de la Diócesis de La Vega somos una institución de la Iglesia que anima y coordina la acción social, organiza la pastoral social-cáritas, promueve el desarrollo integral de los empobrecidos en todos los ámbitos de la vida, de acuerdo con los principios de la Doctrina Social de la Iglesia.
+                    </p>
+                </div>
+                <div class="objetivo-card">
+                    <div class="objetivo-letter" style="background: linear-gradient(135deg, #F4A460, #2C5F2D);">V</div>
+                    <h3 style="color: var(--primary); font-size: 1.4rem; margin-bottom: 15px;">Visión</h3>
+                    <p class="objetivo-text">
+                        Ser una organización que promueve el desarrollo integral de los empobrecidos mediante un proceso de concientización que les permita ser agentes de su propio desarrollo, contribuyendo a que los más desposeídos mejoren su calidad de vida, fortaleciendo la Pastoral Social-Cáritas, para que ésta sea promotora del espíritu de caridad y solidaridad.
+                    </p>
+                </div>
+            </div>
+
+            <h3 style="font-size: 2rem; color: var(--primary); margin: 60px 0 30px; text-align: center;">Valores Institucionales</h3>
+            <div class="valores-grid">
+                <div class="valor-badge">Solidaridad</div>
+                <div class="valor-badge">Participación</div>
+                <div class="valor-badge">Comunicación</div>
+                <div class="valor-badge">Subsidiariedad</div>
+                <div class="valor-badge">Eficiencia</div>
+                <div class="valor-badge">Transparencia</div>
+                <div class="valor-badge">Libertad</div>
+                <div class="valor-badge">Justicia</div>
+                <div class="valor-badge">Paz</div>
+            </div>
+
+            <h3 style="font-size: 2rem; color: var(--primary); margin: 60px 0 30px; text-align: center;">Ejes Transversales</h3>
+            <div class="valores-grid">
+                <div class="valor-badge">Identidad y Fidelidad Católica</div>
+                <div class="valor-badge">Equidad de Género</div>
+                <div class="valor-badge">Incidencia</div>
+                <div class="valor-badge">Participación Comunitaria</div>
+                <div class="valor-badge">Formación en Valores</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Objetivos Section -->
+    <section id="objetivos" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nuestros Objetivos</h2>
+                <p class="section-subtitle">Realizando la acción caritativa y social de la Iglesia en la Diócesis</p>
+            </div>
+
+            <div class="objetivos-grid">
+                <div class="objetivo-card">
+                    <div class="objetivo-letter">A</div>
+                    <p class="objetivo-text">
+                        Difundir los principios de la DSI, el espíritu de caridad, solidaridad y justicia social, motivando la toma de conciencia de hombres y mujeres a favor de la comunión cristiana de bienes, acorde con las normas de la Iglesia.
+                    </p>
+                </div>
+                <div class="objetivo-card">
+                    <div class="objetivo-letter">B</div>
+                    <p class="objetivo-text">
+                        Promover y coordinar iniciativas tanto propias como de grupos e instancias afines públicas y privadas en orden a la solución de las necesidades de los desposeídos, estableciendo mecanismos de cooperación con entidades de asistencia social.
+                    </p>
+                </div>
+                <div class="objetivo-card">
+                    <div class="objetivo-letter">C</div>
+                    <p class="objetivo-text">
+                        Acompañar a los empobrecidos de nuestra Diócesis en un proceso de organización comunitaria y educación integral, encaminada a la creación de una mayor conciencia de su dignidad y derechos.
+                    </p>
+                </div>
+                <div class="objetivo-card">
+                    <div class="objetivo-letter">D</div>
+                    <p class="objetivo-text">
+                        Estudiar los problemas que origina la pobreza en la Diócesis, coordinar procesos investigativos sobre sus causas y soluciones, buscando respuestas oportunas y efectivas basadas en los derechos de las personas y la exigencia de la justicia.
+                    </p>
+                </div>
+                <div class="objetivo-card">
+                    <div class="objetivo-letter">E</div>
+                    <p class="objetivo-text">
+                        Promover la participación comunitaria y el desarrollo de espacios democráticos, por una sociedad más integrada, solidaria y defensora de los recursos naturales.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ejes Estratégicos Section -->
+    <section id="ejes" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Ejes Estratégicos 2024-2028</h2>
+                <p class="section-subtitle">17 áreas de servicio organizadas en 8 ejes estratégicos</p>
+            </div>
+
+            <div class="ejes-container">
+                <div class="eje-card">
+                    <div class="eje-number">1</div>
+                    <div class="eje-title">SEGURIDAD ALIMENTARIA</div>
+                </div>
+                <div class="eje-card">
+                    <div class="eje-number">2</div>
+                    <div class="eje-title">ECONOMÍA SOLIDARIA</div>
+                </div>
+                <div class="eje-card">
+                    <div class="eje-number">3</div>
+                    <div class="eje-title">SALUD, AGUA Y SANEAMIENTO</div>
+                </div>
+                <div class="eje-card">
+                    <div class="eje-number">4</div>
+                    <div class="eje-title">MEDIO AMBIENTE Y GESTIÓN DE RIESGO</div>
+                </div>
+                <div class="eje-card">
+                    <div class="eje-number">5</div>
+                    <div class="eje-title">VIVIENDA E INFRAESTRUCTURAS</div>
+                </div>
+                <div class="eje-card">
+                    <div class="eje-number">6</div>
+                    <div class="eje-title">AYUDA Y ASISTENCIA HUMANITARIA</div>
+                </div>
+                <div class="eje-card">
+                    <div class="eje-number">7</div>
+                    <div class="eje-title">EDUCACIÓN</div>
+                </div>
+                <div class="eje-card">
+                    <div class="eje-number">8</div>
+                    <div class="eje-title">FORTALECIMIENTO INSTITUCIONAL</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enfoques Section -->
+    <section id="enfoques" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Enfoques de Acción</h2>
+                <p class="section-subtitle">Áreas clave de intervención comunitaria</p>
+            </div>
+
+            <div class="enfoques-grid">
+                <div class="enfoque-card">
+                    <h3 class="enfoque-title">Agua y Saneamiento Ambiental</h3>
+                    <p class="enfoque-description">
+                        Contribuir para que las comunidades tengan acceso a agua potable y servicios de saneamiento. Programa de capacitación sobre uso correcto del agua, formación de capacidades y manejo de acueductos.
+                    </p>
+                </div>
+                <div class="enfoque-card">
+                    <h3 class="enfoque-title">Producción Agropecuaria y Seguridad Alimentaria</h3>
+                    <p class="enfoque-description">
+                        Promoción de la producción de alimentos y proyectos agropecuarios para lograr auto sostenimiento, crianza de animales, hortalizas familiares, comercialización de productos y cultivos orgánicos.
+                    </p>
+                </div>
+                <div class="enfoque-card">
+                    <h3 class="enfoque-title">Economía Solidaria</h3>
+                    <p class="enfoque-description">
+                        Promoción de proyectos autogestionarios mediante microcrédito e iniciativas emprendedoras. Cooperativas de producción y organización de grupos de auto ahorros y préstamos (GAAP).
+                    </p>
+                </div>
+                <div class="enfoque-card">
+                    <h3 class="enfoque-title">Salud</h3>
+                    <p class="enfoque-description">
+                        Ejecución de programas y servicios de salud para mejorar el acceso a medicamentos, educación en salud comunitaria y acciones en prevención y curación de enfermedades.
+                    </p>
+                </div>
+                <div class="enfoque-card">
+                    <h3 class="enfoque-title">Educación</h3>
+                    <p class="enfoque-description">
+                        Programas educativos informales mediante organizaciones comunitarias y parroquiales. Diplomados, cursos, talleres y conferencias con énfasis en liderazgo y promoción de organizaciones comunitarias.
+                    </p>
+                </div>
+                <div class="enfoque-card">
+                    <h3 class="enfoque-title">Infraestructura y Vivienda</h3>
+                    <p class="enfoque-description">
+                        Ejecución de programas y proyectos para reconstruir y construir viviendas en familias empobrecidas, y habilitar estructuras básicas de apoyo al desarrollo comunitario.
+                    </p>
+                </div>
+                <div class="enfoque-card">
+                    <h3 class="enfoque-title">Derechos Humanos</h3>
+                    <p class="enfoque-description">
+                        Programas de educación y sensibilización en temas de dignidad y derechos humanos, principalmente con familias en situación de vulnerabilidad.
+                    </p>
+                </div>
+                <div class="enfoque-card">
+                    <h3 class="enfoque-title">Doctrina Social de la Iglesia</h3>
+                    <p class="enfoque-description">
+                        Desarrollo de programas de formación y capacitación en DSI con agentes de pastoral y voluntarios vinculados a la acción social de la iglesia.
+                    </p>
+                </div>
+                <div class="enfoque-card">
+                    <h3 class="enfoque-title">Medio Ambiente, Gestión de Riesgo y Emergencias</h3>
+                    <p class="enfoque-description">
+                        Promoción del uso racional y sostenible de recursos naturales. Capacitación sobre medio ambiente, planes operativos y organización de redes comunitarias de emergencias.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Section -->
+    <section id="servicios" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Población Beneficiaria</h2>
+            </div>
+
+            <div class="objetivos-grid">
+                <div class="objetivo-card">
+                    <div class="objetivo-letter" style="background: linear-gradient(135deg, #F4A460, #97BC62);">👥</div>
+                    <h3 style="color: var(--primary); font-size: 1.3rem; margin-bottom: 15px;">Mujeres</h3>
+                    <p class="objetivo-text">
+                        Programas especializados para el empoderamiento y desarrollo de las mujeres en las comunidades.
+                    </p>
+                </div>
+                <div class="objetivo-card">
+                    <div class="objetivo-letter" style="background: linear-gradient(135deg, #F4A460, #97BC62);">🌱</div>
+                    <h3 style="color: var(--primary); font-size: 1.3rem; margin-bottom: 15px;">Jóvenes y Niños</h3>
+                    <p class="objetivo-text">
+                        Iniciativas educativas y de desarrollo enfocadas en las nuevas generaciones.
+                    </p>
+                </div>
+                <div class="objetivo-card">
+                    <div class="objetivo-letter" style="background: linear-gradient(135deg, #F4A460, #97BC62);">🌾</div>
+                    <h3 style="color: var(--primary); font-size: 1.3rem; margin-bottom: 15px;">Productores Agropecuarios</h3>
+                    <p class="objetivo-text">
+                        Apoyo y capacitación para productoras y productores del sector agropecuario.
+                    </p>
+                </div>
+                <div class="objetivo-card">
+                    <div class="objetivo-letter" style="background: linear-gradient(135deg, #F4A460, #97BC62);">🏘️</div>
+                    <h3 style="color: var(--primary); font-size: 1.3rem; margin-bottom: 15px;">Sectores Vulnerables</h3>
+                    <p class="objetivo-text">
+                        Sectores barriales y campesinos en situación de vulnerabilidad social y económica.
+                    </p>
+                </div>
+            </div>
+
+            <h3 style="font-size: 2rem; color: var(--primary); margin: 60px 0 30px; text-align: center;">Metodología de Intervención</h3>
+            <div class="historia-card">
+                <p class="historia-text">
+                    Cáritas parte del Plan Estratégico que contempla 8 Ejes Estratégicos y 17 Áreas de trabajo. Se toma en cuenta el Plan de Pastoral de la Iglesia para ajustar las líneas de acción con el Modelo Ideal de la Pastoral Social Cáritas.
+                </p>
+                <p class="historia-text">
+                    Cada acción se ajusta al Organigrama Institucional y a la estructura diocesana. Se coordinan servicios dentro del ámbito de parroquias y comunidades, contactando organizaciones, agentes de pastoral y líderes comunitarios.
+                </p>
+                <p class="historia-text">
+                    Se realizan diagnósticos comunitarios utilizando la técnica del Árbol de problemas y el Análisis FODA, identificando necesidades, fortalezas, debilidades y amenazas. Con participación comunitaria se determinan prioridades, se formulan proyectos, se identifican fuentes de financiamiento y se ejecuta la evaluación de impacto.
+                </p>
+            </div>
+
+            <h3 style="font-size: 2rem; color: var(--primary); margin: 60px 0 30px; text-align: center;">Capacitación del Personal</h3>
+            <ul class="styled-list">
+                <li>Formulación de proyectos sociales</li>
+                <li>Gestión de Riesgo y Emergencias</li>
+                <li>Microcrédito y emprendimientos</li>
+                <li>Doctrina Social de la Iglesia</li>
+                <li>Liderazgo comunitario</li>
+                <li>Promoción integral y desarrollo</li>
+                <li>Gerencia y administración</li>
+                <li>Incidencia política</li>
+                <li>Derechos humanos</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section id="contacto" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contacto</h2>
+                <p class="section-subtitle">Estamos aquí para servir a nuestra comunidad</p>
+            </div>
+
+            <div class="contact-info">
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="contact-label">Dirección</div>
+                        <div class="contact-value">Avenida Alfredo Peralta Michell<br>Sector La Lotería, La Vega</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-label">Teléfono</div>
+                        <div class="contact-value">809-573-1033</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value">caritaslavega@yahoo.es</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-label">Apartado Postal</div>
+                        <div class="contact-value">271</div>
+                    </div>
+                </div>
+                <div style="margin-top: 40px; text-align: center;">
+                    <p style="font-size: 1.1rem; opacity: 0.95;">
+                        <strong>Ámbito de Acción:</strong> La Vega, Monseñor Nouel, Hermanas Mirabal y Sánchez Ramírez
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p><strong>Cáritas Diocesana de La Vega</strong></p>
+            <p>Parte de la Red Cáritas Dominicana y Cáritas Internacionalis</p>
+            <p style="margin-top: 20px; font-size: 0.9rem;">
+                Fundada en 1969 por Monseñor Juan Antonio Flores Santana
+            </p>
+            <p style="margin-top: 10px; font-size: 0.85rem; opacity: 0.7;">
+                © 2025 Cáritas La Vega. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and major elements
+        document.querySelectorAll('.historia-card, .objetivo-card, .eje-card, .enfoque-card, .stat-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
