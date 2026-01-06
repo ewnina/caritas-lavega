@@ -172,7 +172,7 @@
         }
 
         .section-header {
-            text-align: center;
+            text-align: left;
             margin-bottom: 60px;
         }
 
@@ -425,7 +425,7 @@
             color: white;
             padding: 40px 30px;
             border-radius: 15px;
-            text-align: center;
+            text-align: left;
             box-shadow: 0 10px 30px rgba(44, 95, 45, 0.2);
         }
 
@@ -483,7 +483,7 @@
             background: var(--bg-white);
             padding: 20px;
             border-radius: 30px;
-            text-align: center;
+            text-align: left;
             font-weight: 600;
             color: var(--primary);
             box-shadow: 0 3px 15px rgba(0,0,0,0.05);
@@ -534,7 +534,7 @@
             background: var(--text-dark);
             color: white;
             padding: 40px 20px;
-            text-align: center;
+            text-align: left;
         }
 
         .footer-content {
@@ -587,6 +587,97 @@
         ::selection {
             background: var(--secondary);
             color: white;
+        }
+
+        /* Botón Flotante de Navegación */
+        .floating-menu-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(44, 95, 45, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .floating-menu-btn:hover {
+            background: var(--secondary);
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(44, 95, 45, 0.5);
+        }
+
+        .floating-menu-btn svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
+        }
+
+        /* Menú flotante desplegable */
+        .floating-menu {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            padding: 15px;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            max-width: 250px;
+        }
+
+        .floating-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .floating-menu a {
+            display: block;
+            padding: 12px 15px;
+            color: var(--text-dark);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        .floating-menu a:hover {
+            background: var(--bg-light);
+            color: var(--primary);
+            padding-left: 20px;
+        }
+
+        .floating-menu a:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Responsive para móvil */
+        @media (max-width: 768px) {
+            .floating-menu-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+            }
+
+            .floating-menu {
+                bottom: 85px;
+                right: 20px;
+                max-width: calc(100vw - 40px);
+            }
         }
     </style>
 </head>
@@ -739,7 +830,7 @@
                 </div>
             </div>
 
-            <h3 style="font-size: 2rem; color: var(--primary); margin: 60px 0 30px; text-align: center;">Valores Institucionales</h3>
+            <h3 style="font-size: 2rem; color: var(--primary); margin: 60px 0 30px; text-align: left;">Valores Institucionales</h3>
             <div class="valores-grid">
                 <div class="valor-badge">Solidaridad</div>
                 <div class="valor-badge">Participación</div>
@@ -752,7 +843,7 @@
                 <div class="valor-badge">Paz</div>
             </div>
 
-            <h3 style="font-size: 2rem; color: var(--primary); margin: 60px 0 30px; text-align: center;">Ejes Transversales</h3>
+            <h3 style="font-size: 2rem; color: var(--primary); margin: 60px 0 30px; text-align: left;">Ejes Transversales</h3>
             <div class="valores-grid">
                 <div class="valor-badge">Identidad y Fidelidad Católica</div>
                 <div class="valor-badge">Equidad de Género</div>
@@ -956,7 +1047,7 @@
                 </div>
             </div>
 
-            <h3 style="font-size: 2rem; color: var(--primary); margin: 60px 0 30px; text-align: center;">Metodología de Intervención</h3>
+            <h3 style="font-size: 2rem; color: var(--primary); margin: 60px 0 30px; text-align: left;">Metodología de Intervención</h3>
             <div class="historia-card">
                 <p class="historia-text">
                     Cáritas parte del Plan Estratégico que contempla 8 Ejes Estratégicos y 17 Áreas de trabajo. Se toma en cuenta el Plan de Pastoral de la Iglesia para ajustar las líneas de acción con el Modelo Ideal de la Pastoral Social Cáritas.
@@ -969,7 +1060,7 @@
                 </p>
             </div>
 
-            <h3 style="font-size: 2rem; color: var(--primary); margin: 60px 0 30px; text-align: center;">Capacitación del Personal</h3>
+            <h3 style="font-size: 2rem; color: var(--primary); margin: 60px 0 30px; text-align: left;">Capacitación del Personal</h3>
             <ul class="styled-list">
                 <li>Formulación de proyectos sociales</li>
                 <li>Gestión de Riesgo y Emergencias</li>
@@ -1011,7 +1102,7 @@
                         <div class="contact-value">271</div>
                     </div>
                 </div>
-                <div style="margin-top: 40px; text-align: center;">
+                <div style="margin-top: 40px; text-align: left;">
                     <p style="font-size: 1.1rem; opacity: 0.95;">
                         <strong>Ámbito de Acción:</strong> La Vega, Monseñor Nouel, Hermanas Mirabal y Sánchez Ramírez
                     </p>
@@ -1066,3 +1157,52 @@
 
         // Observe all cards and major elements
         document.querySelectorAll('.historia-card, .objetivo-card, .eje-card, .enfoque-card, .stat-card').forEach(el => {
+                   observer.observe(el);
+        });
+    </script>
+
+    <!-- Botón Flotante de Navegación -->
+    <button class="floating-menu-btn" id="floatingMenuBtn" aria-label="Menú de navegación">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+    </button>
+
+    <!-- Menú Flotante Desplegable -->
+    <div class="floating-menu" id="floatingMenu">
+        <a href="#historia">📜 Historia</a>
+        <a href="#descripcion">📋 Descripción</a>
+        <a href="#mision-vision">🎯 Misión y Visión</a>
+        <a href="#objetivos">✨ Objetivos</a>
+        <a href="#ejes">🔄 Ejes Estratégicos</a>
+        <a href="#enfoques">💡 Enfoques de Acción</a>
+        <a href="#poblacion">👥 Población Beneficiaria</a>
+        <a href="#metodologia">⚙️ Metodología</a>
+        <a href="#contacto">📞 Contacto</a>
+    </div>
+
+    <script>
+        // Funcionalidad del botón flotante
+        const floatingMenuBtn = document.getElementById('floatingMenuBtn');
+        const floatingMenu = document.getElementById('floatingMenu');
+
+        floatingMenuBtn.addEventListener('click', function() {
+            floatingMenu.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic fuera
+        document.addEventListener('click', function(event) {
+            if (!floatingMenuBtn.contains(event.target) && !floatingMenu.contains(event.target)) {
+                floatingMenu.classList.remove('active');
+            }
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        floatingMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                floatingMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
